@@ -23,5 +23,5 @@ services:
     container_name: "whoami"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`34.42.195.174/whoami`)"
+      - "traefik.http.routers.whoami.rule=Path(`/whoami`)"
       - "traefik.http.routers.whoami.entrypoints=web"
