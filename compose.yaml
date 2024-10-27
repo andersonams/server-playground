@@ -6,7 +6,8 @@ services:
     image: "traefik:v3.1"
     container_name: "traefik"
     command:
-      #- "--log.level=DEBUG"
+      - "--log.level=DEBUG"
+      - "--api.dashboard=true"
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
@@ -19,8 +20,8 @@ services:
 
   whoami:
     image: "traefik/whoami"
-    container_name: "simple-service"
+    container_name: "whoami"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`34.42.195.174`)"
+      - "traefik.http.routers.whoami.rule=Host(`34.42.195.174/whoami`)"
       - "traefik.http.routers.whoami.entrypoints=web"
