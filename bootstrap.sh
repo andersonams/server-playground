@@ -1,1 +1,1 @@
-
+. traefik/deploy.sh
